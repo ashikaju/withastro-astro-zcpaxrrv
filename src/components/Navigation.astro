@@ -1,0 +1,38 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/explore', label: 'Explore Pitches' },
+  { href: '/pitch', label: 'Submit Pitch' },
+  { href: '/marketplace', label: 'Marketplace' },
+  { href: '/mentors', label: 'Mentors & Investors' },
+  { href: '/challenges', label: 'Challenges' },
+  { href: '/dashboard', label: 'Dashboard' },
+];
+---
+
+<nav class="bg-white shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <a href="/" class="flex items-center space-x-3">
+        <span class="text-2xl font-bold text-primary">IdeaForge</span>
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class="text-gray-700 hover:text-primary transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <button class="md:hidden p-2" id="mobile-menu-button">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>

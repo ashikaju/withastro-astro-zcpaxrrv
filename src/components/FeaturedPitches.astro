@@ -1,0 +1,70 @@
+---
+const featuredPitches = [
+  {
+    title: "EcoCharge",
+    description: "Sustainable wireless charging solution using recycled materials",
+    category: "Green Tech",
+    funding: 75000,
+    goal: 100000,
+    author: "Sarah Chen"
+  },
+  {
+    title: "LearnLoop",
+    description: "AI-powered adaptive learning platform for STEM education",
+    category: "EdTech",
+    funding: 120000,
+    goal: 150000,
+    author: "Michael Rodriguez"
+  },
+  {
+    title: "UrbanFarm",
+    description: "Smart vertical farming solution for urban spaces",
+    category: "AgriTech",
+    funding: 90000,
+    goal: 200000,
+    author: "Emma Watson"
+  }
+];
+---
+
+<section class="py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-8">Featured Pitches</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {featuredPitches.map(pitch => (
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-xl font-semibold">{pitch.title}</h3>
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
+                {pitch.category}
+              </span>
+            </div>
+            <p class="text-gray-600 mb-4">{pitch.description}</p>
+            <div class="mb-4">
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="bg-primary rounded-full h-2"
+                  style={`width: ${(pitch.funding / pitch.goal) * 100}%`}
+                ></div>
+              </div>
+              <div class="flex justify-between mt-2 text-sm text-gray-600">
+                <span>${pitch.funding.toLocaleString()} raised</span>
+                <span>${pitch.goal.toLocaleString()} goal</span>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500">by {pitch.author}</span>
+              <a
+                href={`/pitch/${pitch.title.toLowerCase()}`}
+                class="text-primary hover:text-primary-dark font-medium"
+              >
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
